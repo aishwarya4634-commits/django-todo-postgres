@@ -1,0 +1,16 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>All Lists</h2>
+<a href="{% url 'list-create' %}">Create List</a>
+
+<ul>
+    {% for list in object_list %}
+        <li>
+            <a href="{% url 'list-detail' list.pk %}">
+                {{ list.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
